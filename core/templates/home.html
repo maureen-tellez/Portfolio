@@ -1,11 +1,73 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>Mi Portafolio</title>
-  </head>
-  <body>
-    <h1>¡Hola! Este es mi portafolio en Django 🚀</h1>
-    <p>Pronto verás mis proyectos aquí.</p>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+
+{% block title %}Gina Maureen Tellez{% endblock %}
+
+{% block content %}
+
+  <!-- Encabezado principal -->
+  <header class="hero" id="inicio">
+    <div class="hero-text">
+      <h2>Gina Maureen Tellez</h2>
+      <p>Apasionada por la tecnología y el diseño</p>
+    </div>
+  </header>
+
+  <!-- Sección de proyectos -->
+  <section class="projects" id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="cards-container">
+      <div class="card">
+        <img src="{% static 'assets/liverpool.png' %}" alt="Proyecto 1">
+        <h3>Liverpool Page</h3>
+        <p>Una réplica de la interfaz de Liverpool, usando HTML y CSS.</p>
+        <button>Ver más</button>
+      </div>
+      <div class="card">
+        <img src="{% static 'assets/proyecto2.png' %}" alt="Proyecto 2">
+        <h3>Sitio Web Primaria</h3>
+        <p>Sitio Web para una institución educativa usando JavaScript, HTML y CSS.</p>
+        <button>Ver más</button>
+      </div>
+      <div class="card">
+        <img src="{% static 'assets/MVC.png' %}" alt="Proyecto 3">
+        <h3>Manejo de librería</h3>
+        <p>Creación de CRUD, usando Java, Spring y HTML.</p>
+        <button>Ver más</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de habilidades -->
+<section class="skills">
+    <h2>Habilidades</h2>
+    <ul class="skills-list">
+        <li><i class="fas fa-code"></i> HTML</li>
+        <li><i class="fab fa-css3-alt"></i> CSS</li>
+        <li><i class="fab fa-js-square"></i> JavaScript</li>
+        <li><i class="fas fa-database"></i> MongoDB</li>
+        <li><i class="fab fa-node-js"></i> Node.js</li>
+        <li><i class="fab fa-github"></i> GitHub</li>
+        <li><i class="fas fa-users"></i> Trabajo en equipo</li>
+        <li><i class="fas fa-comments"></i> Comunicación efectiva</li>
+        <li><i class="fas fa-lightbulb"></i> Creatividad</li>
+        <li><i class="fas fa-clock"></i> Gestión del tiempo</li>
+        <li><i class="fas fa-brain"></i> Pensamiento crítico</li>
+        <li><i class="fas fa-seedling"></i> Adaptabilidad</li>
+    </ul>
+</section>
+
+  <!-- Formulario de contacto -->
+  <section class="contact" id="contacto">
+    <h2>Contacto</h2>
+    <form method="post" action="#contacto">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <textarea name="message" placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+{% endblock %}
